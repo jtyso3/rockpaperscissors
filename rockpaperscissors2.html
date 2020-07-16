@@ -1,0 +1,77 @@
+// Rock paper scissors game. Practicing java script
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+
+    <script>
+
+// Does not work--- The while loop seems to be ignoring conditionals?  does not loop until conditional is met. From my understanding this should be an infinate loop.
+function playgame(){
+  userChoice = userInput();
+  computerChoice = computerInput();
+  game(userChoice,computerChoice);
+}
+      function userInput(){
+        let userChoice = prompt("Lets play Rock Paper Scissors! Please only choose Rock, Paper, or Scissors.").toLowerCase().trim();
+        while ( (userChoice !== "rock") || (userChoice !== "scissors") || (userChoice !== "paper") ){
+          let userChoice = prompt("Lets play Rock Paper Scissors! Please only choose Rock, Paper, or Scissors. (Watch for spelling errors!)").toLowerCase().trim();
+        return userChoice;
+        }
+        
+      }
+
+      //works
+      function computerInput(){
+        let computerChoice = Math.random();
+
+        if (computerChoice <= 0.33) {
+          let computerChoice = "rock";
+          return computerChoice;
+        } else if (computerChoice >= 0.66){
+          let computerChoice = "paper";
+          return computerChoice
+        }else if (computerChoice > 0.33 && computerChoice < .66){
+          let computerChoice = "scissors";
+          return computerChoice;
+        }
+      }
+
+      //works
+      function game(userChoice, computerChoice){
+
+
+        if (userChoice === "rock" && computerChoice === "scissors"){
+
+          return console.log(`YOU selected ${userChoice} and robot selected ${computerChoice}, YOU WIN!!`);
+
+        }else if (userChoice === "scissors" && computerChoice === "paper"){
+
+          return console.log(`YOU selected ${userChoice} and robot selected ${computerChoice}, YOU WIN!!`)
+
+        }else if (userChoice === "paper" && computerChoice === "rock"){
+
+          return console.log(`YOU selected ${userChoice} and robot selected ${computerChoice}, YOU WIN!!`);
+
+        }else if(userChoice === computerChoice){
+
+         return console.log(`YOU selected ${userChoice} and robot selected ${computerChoice}, TIE GAME!!`);
+
+        }else{
+
+          return console.log(`YOU selected ${userChoice} and robot selected ${computerChoice}, ROBOT WINS!!`);
+        }
+
+      }
+      playgame();
+
+
+      </script>
+
+  </body>
+</html>
