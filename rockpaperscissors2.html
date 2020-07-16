@@ -12,19 +12,28 @@
     <script>
 
 // Does not work--- The while loop seems to be ignoring conditionals?  does not loop until conditional is met. From my understanding this should be an infinate loop.
-function playgame(){
-  userChoice = userInput();
-  computerChoice = computerInput();
-  game(userChoice,computerChoice);
-}
-      function userInput(){
-        let userChoice = prompt("Lets play Rock Paper Scissors! Please only choose Rock, Paper, or Scissors.").toLowerCase().trim();
-        while ( (userChoice !== "rock") || (userChoice !== "scissors") || (userChoice !== "paper") ){
-          let userChoice = prompt("Lets play Rock Paper Scissors! Please only choose Rock, Paper, or Scissors. (Watch for spelling errors!)").toLowerCase().trim();
-        return userChoice;
-        }
-        
+      function playgame(){
+        userChoice = userInput();
+        computerChoice = computerInput();
+        game(userChoice,computerChoice);
       }
+
+
+      function userInput(){
+        let valid = true;
+        let userChoice= ""
+        do {
+          userChoice = prompt("Lets play Rock Paper Scissors! Please only choose Rock, Paper, or Scissors.").toLowerCase().trim();
+          if ( (userChoice == "rock") || (userChoice == "scissors") || (userChoice == "paper") ){
+            valid = true;
+          } else {valid = false;
+            console.log("invailed output, please try again. (Watch for spelling!)")
+
+        }
+      } while (!valid);
+      return userChoice;
+    }
+
 
       //works
       function computerInput(){
@@ -68,9 +77,7 @@ function playgame(){
         }
 
       }
-      playgame();
-
-
+      playgame()
       </script>
 
   </body>
