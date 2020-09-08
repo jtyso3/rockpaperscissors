@@ -9,7 +9,7 @@ function main(){
   btn1 = document.querySelector('#rock');
   btn1.addEventListener('click', ()=>{
     let [uwin, tie, loose] = game('rock');// calc game winner
-    let [uTracker, tTracker, cTracker] = tracker(uwin, tie, loose); // tracks wins ties and looses
+    let [uTracker, tTracker, cTracker] = tracker(uwin, tie, loose); // tracks wins ties and loses
     scoreKeep(uTracker, tTracker, cTracker); // will end game when 5 rounds won have played
 
   })
